@@ -16,8 +16,13 @@ export default {
     {
       name: "comment",
       title: "Comment",
-      type: "string",
+      type: "text",
+      options: {
+        maxLength: 600,
+      },
+      validation: (Rule) => Rule.required(),
     },
+
     {
       name: "image",
       title: "Image",

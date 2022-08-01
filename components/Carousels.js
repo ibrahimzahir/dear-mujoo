@@ -26,7 +26,7 @@ function Carousels() {
   console.log(messages);
   if (loading) return <Spinner />;
   return (
-    <div className=" py-24">
+    <div className="py-24">
       <div className="px-6 text-gray-600 md:px-12 xl:px-6">
         <div className="mb-12 space-y-2 text-center">
           {/* <span className="block w-max mx-auto px-4 py-1.5 border border-white rounded-full bg-white-100 text-white">
