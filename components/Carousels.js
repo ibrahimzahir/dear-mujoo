@@ -1,13 +1,38 @@
 import React from "react";
 import Image from "next/image";
+import Spinner from "../components/Spinner";
+import { client } from "../client";
+import { feedQuery } from "../utils/requests";
+import { useEffect, useState } from "react";
+import Messages from "./Messages";
+
+const handleClick = () => {
+  setActive(!active);
+};
 
 function Carousels() {
+  const [loading, setLoading] = useState(false);
+  const [messages, setMessages] = useState(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+
+    client.fetch(feedQuery).then((data) => {
+      setMessages(data);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) return <Spinner />;
   return (
     <div>
       <div className="relative">
-        <img
+        <Image
           className="absolute inset-0 w-full h-full object-cover object-top"
-          src="./background.jpeg"
+          src="/background.jpeg"
+          layout="fill"
+          objectFit="cover"
           alt=""
         />
         <div
@@ -30,123 +55,7 @@ function Carousels() {
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                  <div className="grayscale transition hover:grayscale-0 relative p-1 pb-16 rounded-xl group bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-                    <div className="relative">
-                      <div
-                        aria-hidden="true"
-                        className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-purple-50"
-                      ></div>
-                      <img
-                        src="mujoo10.jpeg"
-                        alt="art cover"
-                        loading="lazy"
-                        width="1000"
-                        height="667"
-                        className="h-64 w-full object-cover rounded-t-lg transition duration-500 group-hover:rounded-t-xl"
-                      />
-                    </div>
-                    <div className="relative space-y-4 -mt-20 p-4">
-                      <h4 className="text-2xl font-semibold text-purple-900">
-                        lorem ispum laboriosam expedita.
-                      </h4>
-                      <p className="text-gray-600">
-                        Voluptates harum aliquam totam, doloribus eum impedit
-                        atque! Temporibus...
-                      </p>
-                    </div>
-                    <a
-                      href="#"
-                      className="absolute inset-x-4 bottom-4 flex items-center space-x-2"
-                    ></a>
-                  </div>
-                  <div className="grayscale transition hover:grayscale-0 relative p-1 pb-16 rounded-xl group bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-                    <div className="relative">
-                      <div
-                        aria-hidden="true"
-                        className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-purple-50"
-                      ></div>
-                      <img
-                        src="mujoo.jpeg"
-                        alt="art cover"
-                        loading="lazy"
-                        width="1000"
-                        height="667"
-                        className="h-64 w-full object-cover rounded-t-lg transition duration-500 group-hover:rounded-t-xl"
-                      />
-                    </div>
-                    <div className="relative space-y-4 -mt-20 p-4">
-                      <h4 className="text-2xl font-semibold text-purple-900">
-                        lorem ispum laboriosam expedita.
-                      </h4>
-                      <p className="text-gray-600">
-                        Voluptates harum aliquam totam, doloribus eum impedit
-                        atque! Temporibus...
-                      </p>
-                    </div>
-                    <a
-                      href="#"
-                      className="absolute inset-x-4 bottom-4 flex items-center space-x-2"
-                    ></a>
-                  </div>
-                  <div className="grayscale transition hover:grayscale-0 relative p-1 pb-16 rounded-xl group bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-                    <div className="relative">
-                      <div
-                        aria-hidden="true"
-                        className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-purple-50"
-                      ></div>
-                      <img
-                        src="mujoo17.jpeg"
-                        alt="art cover"
-                        loading="lazy"
-                        width="1000"
-                        height="667"
-                        className="h-64 w-full object-cover rounded-t-lg transition duration-500 group-hover:rounded-t-xl"
-                      />
-                    </div>
-                    <div className="relative space-y-4 -mt-20 p-4">
-                      <h4 className="text-2xl font-semibold text-purple-900">
-                        lorem ispum laboriosam expedita.
-                      </h4>
-                      <p className="text-gray-600">
-                        Voluptates harum aliquam totam, doloribus eum impedit
-                        atque! Temporibus...
-                      </p>
-                    </div>
-                    <a
-                      href="#"
-                      className="absolute inset-x-4 bottom-4 flex items-center space-x-2"
-                    ></a>
-                  </div>
-
-                  <div className="grayscale transition hover:grayscale-0 relative p-1 pb-16 rounded-xl group bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
-                    <div className="relative">
-                      <div
-                        aria-hidden="true"
-                        className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-purple-50"
-                      ></div>
-                      <img
-                        src="mujoo11.jpeg"
-                        alt="art cover"
-                        loading="lazy"
-                        width="1000"
-                        height="667"
-                        className="h-64 w-full object-cover rounded-t-lg transition duration-500 group-hover:rounded-t-xl"
-                      />
-                    </div>
-                    <div className="relative space-y-4 -mt-20 p-4">
-                      <h4 className="text-2xl font-semibold text-purple-900">
-                        lorem ispum laboriosam expedita.
-                      </h4>
-                      <p className="text-gray-600">
-                        Voluptates harum aliquam totam, doloribus eum impedit
-                        atque! Temporibus...
-                      </p>
-                    </div>
-                    <a
-                      href="#"
-                      className="absolute inset-x-4 bottom-4 flex items-center space-x-2"
-                    ></a>
-                  </div>
+                  {messages && <Messages messages={messages} />}
                 </div>
               </div>
             </div>
