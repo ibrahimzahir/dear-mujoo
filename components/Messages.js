@@ -3,7 +3,7 @@ import Message from "./Message";
 
 function Messages({ messages }) {
   return (
-    <div>
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {messages?.map((message) => (
         <Message key={message._id} message={message} />
       ))}

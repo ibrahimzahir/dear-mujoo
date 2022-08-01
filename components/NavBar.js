@@ -18,19 +18,23 @@ function NavBar() {
           <div className="container m-auto px-2 md:px-12 lg:px-7">
             <div className="flex flex-wrap items-center justify-between gap-6 md:py-3 md:gap-0">
               <div className="w-full px-6 flex justify-between lg:w-max md:px-0">
-                <a
-                  href="#"
-                  aria-label="logo"
-                  className="flex space-x-2 items-center"
-                >
-                  <div aria-hidden="true" className="flex space-x-1">
-                    <div className="h-4 w-4 rounded-full bg-gray-900"></div>
-                    <div className="h-6 w-2 bg-sky-500"></div>
-                  </div>
-                  <span className="text-base font-bold text-gray-400">
-                    MUJOO
-                  </span>
-                </a>
+                <li>
+                  <Link href="/">
+                    <a
+                      aria-label="logo"
+                      className="flex space-x-2 items-center"
+                    >
+                      <div aria-hidden="true" className="flex space-x-1">
+                        <div className="h-4 w-4 rounded-full bg-gray-900"></div>
+                        <div className="h-6 w-2 bg-sky-500"></div>
+                      </div>
+                      <span className="text-base font-bold text-gray-400">
+                        MUJOO
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+
                 <label
                   htmlFor="hbr"
                   className="peer-checked:hamburger block relative z-20 p-6 -mr-6 cursor-pointer lg:hidden"
@@ -49,20 +53,18 @@ function NavBar() {
                 <div className="text-sky-500 lg:pr-4">
                   <ul className="space-y-6 tracking-wide font-medium text-lg lg:text-sm lg:flex lg:space-y-0">
                     <li>
-                      <a
-                        href="#"
-                        className="block md:px-4 transition hover:text-sky-700"
-                      >
-                        <span>Home</span>
-                      </a>
+                      <Link href="/">
+                        <a className="block md:px-4 transition hover:text-sky-700">
+                          <span>Home</span>
+                        </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        className="block md:px-4 transition hover:text-sky-700"
-                      >
-                        <span>About</span>
-                      </a>
+                      <Link href="/about">
+                        <a className="block md:px-4 transition hover:text-sky-700">
+                          <span>About</span>
+                        </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
